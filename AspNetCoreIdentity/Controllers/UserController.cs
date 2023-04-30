@@ -63,7 +63,7 @@ namespace AspNetCoreIdentity.Controllers
             foreach (var user in users)
             {
                 var roles = await _userManager.GetRolesAsync(user);
-                if (!roles.Contains("Admin")
+                if (!roles.Contains("Admin"))
                 {
                     filteredUSers.Add(user);
                 }
@@ -132,8 +132,9 @@ namespace AspNetCoreIdentity.Controllers
                 });
                 model.Roles = list;
                 model.UserId = id;
-                return View(model);
             }
+            return View(model);
+
         }
 
         public async Task<IActionResult> AssignRole(RoleAssignSendModel model)
